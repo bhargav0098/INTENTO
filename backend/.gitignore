@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.DS_Store
+test_output.pdf
+test_gemini.py
+test_groq.py
+test_pdf_gen.py
