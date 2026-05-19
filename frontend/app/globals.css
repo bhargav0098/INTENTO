@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0A0A0F;
+  --foreground: #F1F5F9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2D2D44; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
+
+/* ─── Button & input base ──────────────────────────────────────────────── */
+button {
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+input, textarea, select {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* ─── Card hover lift ──────────────────────────────────────────────────── */
+.card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.15);
+}
+
+/* ─── Page slide-in ────────────────────────────────────────────────────── */
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: slide-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Number counter ───────────────────────────────────────────────────── */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.count-animate { animation: count-up 0.4s ease forwards; }
+
+/* ─── Progress bar ─────────────────────────────────────────────────────── */
+@keyframes fill-bar { from { width: 0%; } }
+.bar-animate { animation: fill-bar 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* ─── Step stagger ─────────────────────────────────────────────────────── */
+@keyframes step-appear {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.step-animate { animation: step-appear 0.3s ease forwards; }
+
+/* ─── Skeleton shimmer ─────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #1A1A2E 25%, #2D2D44 50%, #1A1A2E 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─── Toast ────────────────────────────────────────────────────────────── */
+@keyframes toast-in  { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes toast-out { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+.toast-enter { animation: toast-in  0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.toast-exit  { animation: toast-out 0.2s ease forwards; }
+
+/* ─── Drawer ───────────────────────────────────────────────────────────── */
+@keyframes drawer-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+.drawer-enter { animation: drawer-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* ─── Modal ────────────────────────────────────────────────────────────── */
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+.modal-enter { animation: modal-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* ─── Pulse ring (active execution) ───────────────────────────────────── */
+@keyframes ping-slow {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.ping-slow { animation: ping-slow 1.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+/* ─── Agent thought stream ─────────────────────────────────────────────── */
+@keyframes thought-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.thought-animate { animation: thought-fade 0.4s ease forwards; }
